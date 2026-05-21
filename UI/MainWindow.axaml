@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OOP_Practice.UI"
+		x:Class="OOP_Practice.UI.MainWindow"
+        x:DataType="local:WindowViewModel"
+        Title="OOP LAB 2"
+        Width="{Binding WindowWidth}" Height="{Binding WindowHeight}">
+
+    <Grid ColumnDefinitions="250, *">
+        
+        <ScrollViewer Grid.Column="0" Background="#2D2D30">
+            
+            <StackPanel Spacing="10" Margin="15">
+                
+                <TextBlock Text="ІНСТРУМЕНТИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <Button Content="Додати Коло" Click="AddCircle_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Додати Сферу" Click="AddSphere_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Додати Тор" Click="AddTorus_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                
+                <TextBlock Text="КЕРУВАННЯ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+                <Button Content="Пересунути вверх (+50px)" Click="MoveUp_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Пересунути вправо (+50px)" Click="MoveRight_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Пересунути вліво (-50px)" Click="MoveLeft_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Пересунути вниз (-50px)" Click="MoveDown_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                
+                <TextBlock Text="ФАЙЛИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+                <Button Content="Зберегти (JSON)" Click="Save_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#2E8B57"/>
+                <Button Content="Завантажити" Click="Load_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#4682B4"/>
+                
+                <Button Content="Очистити полотно" Click="ClearCanvas_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#8B0000" Margin="0,20,0,0"/>
+                <Button Content="Очистити кеш (смертельно)" Click="ClearCache_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#8B0000" Margin="0,5,0,0"/>
+                
+            </StackPanel>
+            
+        </ScrollViewer>
+
+        <local:ShapeCanvas Name="Canvas" Grid.Column="1" ClipToBounds="True" />
+        
+    </Grid>
+    
+</Window>
