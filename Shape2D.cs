@@ -9,7 +9,7 @@ namespace OOP_Practice
     public abstract class Shape2D : Shape
     {
         public Shape2D() : base() { }
-        public Shape2D(int x, int y, ShapeColors? c = null) : base(x, y, c) { }
+        public Shape2D(short x, short y, ShapeColors? c = null) : base(x, y, c) { }
 
         public override void Move(ShapeGeometry geometry)
         {

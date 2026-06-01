@@ -12,13 +12,19 @@ namespace OOP_Practice
     public class Ring : Circle, IDrawable
     {
         [JsonProperty]
-        public int InnerRadius { get; protected set; }
+        public short InnerRadius { get; protected set; }
         public override double Area => Math.PI * (Math.Pow(this.Radius, 2) - Math.Pow(this.InnerRadius, 2));
         public override double Perimeter => (2 * Math.PI * this.Radius) + (2 * Math.PI * this.InnerRadius);
 
-        public Ring(int x, int y, int outerR, int innerR, ShapeColors? c = null) : base(x, y, outerR, c)
+        public Ring(short x, short y, short outerR, short innerR, ShapeColors? c = null) : base(x, y, outerR, c)
         {
-            this.InnerRadius = innerR >= 0 ? innerR : 0;
+            this.InnerRadius = (short)(innerR >= 0 ? innerR : 0);
+        }
+
+        public override void Resize(ShapeGeometry geometry)
+        {
+            base.Resize(geometry);
+            this.InnerRadius = (short)(geometry.InnerRadius >= 0 ? geometry.InnerRadius : 0);
         }
 
         public override void Draw(DrawingContext context)

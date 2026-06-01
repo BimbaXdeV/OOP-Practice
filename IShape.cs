@@ -9,8 +9,8 @@ namespace OOP_Practice
 {
     public interface IShape
     {
-        int X { get; }
-        int Y { get; }
+        short X { get; }
+        short Y { get; }
         ShapeColors Color { get; }
 
         void Move(ShapeGeometry geometry);

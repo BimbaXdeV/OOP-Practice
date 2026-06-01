@@ -8,21 +8,25 @@ namespace OOP_Practice
 {
     public ref struct ShapeGeometry
     {
-        public int X;
-        public int Y;
-        public int Z;
-        public int Width;
-        public int Height;
-        public int Depth;
+        public short X;
+        public short Y;
+        public short Z;
+        public short Width;
+        public short Height;
+        public short Depth;
+        public short InnerRadius;
+        public short OuterRadius;
 
-        public ShapeGeometry(int x = 0, int y = 0, int z = 0, int w = 0, int h = 0, int d = 0)
+        public ShapeGeometry(short x = 0, short y = 0, short z = 0, short w = 0, short h = 0, short d = 0, short or = 0, short ir = 0)
         {
             this.X = x;
             this.Y = y;
             this.Z = z;
-            this.Width = w >= 0 ? w : 0;
-            this.Height = h >= 0 ? h : 0;
-            this.Depth = d >= 0 ? d : 0;
+            this.Width = (short)(w >= 0 ? w : 0);
+            this.Height = (short)(h >= 0 ? h : 0);
+            this.Depth = (short)(d >= 0 ? d : 0);
+            this.OuterRadius = (short)(or >= 0 ? or : 0);
+            this.InnerRadius = (short)(ir >= 0 ? ir : 0);
         }
     }
 }

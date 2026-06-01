@@ -10,7 +10,7 @@ namespace OOP_Practice
 {
     public class FilledRing : Ring
     {
-        public FilledRing(int x, int y, int outerR, int innerR, ShapeColors? c = null) : base(x, y, outerR, innerR, c) { }
+        public FilledRing(short x, short y, short outerR, short innerR, ShapeColors? c = null) : base(x, y, outerR, innerR, c) { }
 
         public override void Draw(DrawingContext context)
         {

@@ -4,6 +4,7 @@ using Avalonia.Media;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace OOP_Practice.UI
 {
     public class ShapeCanvas : Control, ICanvas
     {
-        private List<IShape> Shapes { get; set; } = [];
+        public ObservableCollection<IShape> Shapes { get; private set; } = [];
         public ShapeColors BackgroundColor { get; set; } = Shape._defaultColor;
 
         public IShape? this[int index]
@@ -50,8 +51,8 @@ namespace OOP_Practice.UI
             {
                 if (this.Bounds.Width > 0 && this.Bounds.Height > 0)
                 {
-                    int newX = centerByX ? (int)(this.Bounds.Width / 2) : shape.X;
-                    int newY = centerByY ? (int)(this.Bounds.Height / 2) : shape.Y;
+                    short newX = centerByX ? (short)(this.Bounds.Width / 2) : shape.X;
+                    short newY = centerByY ? (short)(this.Bounds.Height / 2) : shape.Y;
                     shape.Move(new ShapeGeometry(x: newX, y: newY));
                 }
                 else
@@ -60,8 +61,8 @@ namespace OOP_Practice.UI
                     {
                         if (e.NewSize.Width > 0 && e.NewSize.Height > 0)
                         {
-                            int newX = centerByX ? (int)(this.Bounds.Width / 2) : shape.X;
-                            int newY = centerByY ? (int)(this.Bounds.Height / 2) : shape.Y;
+                            short newX = centerByX ? (short)(this.Bounds.Width / 2) : shape.X;
+                            short newY = centerByY ? (short)(this.Bounds.Height / 2) : shape.Y;
                             shape.Move(new ShapeGeometry(x: newX, y: newY));
                             this.SizeChanged -= OnFirstLayoutArrange;
                         }

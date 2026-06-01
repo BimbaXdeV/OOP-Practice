@@ -12,22 +12,22 @@ namespace OOP_Practice
     public class Torus : Shape3D, IDrawable, IMeasurable3D
     {
         [JsonProperty]
-        public int MajorRadius { get; protected set; }
+        public short MajorRadius { get; protected set; }
         [JsonProperty]
-        public int MinorRadius { get; protected set; }
+        public short MinorRadius { get; protected set; }
         public double SurfaceArea => 4 * Math.Pow(Math.PI, 2) * this.MajorRadius * this.MinorRadius;
         public double Volume => 2 * Math.Pow(Math.PI, 2) * this.MajorRadius * Math.Pow(this.MinorRadius, 2);
 
-        public Torus(int x, int y, int z, int majorR, int minorR, ShapeColors? c = null) : base(x, y, z, c)
+        public Torus(short x, short y, short z, short majorR, short minorR, ShapeColors? c = null) : base(x, y, z, c)
         {
-            this.MajorRadius = majorR >= 0 ? majorR : 0;
-            this.MinorRadius = minorR >= 0 ? minorR : 0;
+            this.MajorRadius = (short)(majorR >= 0 ? majorR : 0);
+            this.MinorRadius = (short)(minorR >= 0 ? minorR : 0);
         }
 
         public override void Resize(ShapeGeometry geometry)
         {
-            this.MajorRadius = geometry.Width >= 0 ? geometry.Width : 0;
-            this.MinorRadius = geometry.Depth >= 0 ? geometry.Depth : 0;
+            this.MajorRadius = (short)(geometry.OuterRadius >= 0 ? geometry.OuterRadius : 0);
+            this.MinorRadius = (short)(geometry.InnerRadius >= 0 ? geometry.InnerRadius : 0);
         }
 
         public void Draw(DrawingContext context)

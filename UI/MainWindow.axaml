@@ -11,10 +11,43 @@
         <ScrollViewer Grid.Column="0" Background="#2D2D30">
             
             <StackPanel Spacing="10" Margin="15">
+                <TextBlock Text="СПИСОК ФІГУР" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+                <ListBox x:Name="ShapesList" Height="150" SelectionChanged="ShapesList_SelectionChanged" Margin="0,0,0,15"/>
+                <Button Content="Застосувати зміни до вибраної" Click="UpdateShape_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#BAB58A" Margin="0,0,0,15"/>
                 
-                <TextBlock Text="ІНСТРУМЕНТИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBlock Text="ПАРАМЕТРИ ФІГУРИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" Margin="0,0,0,15">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Позиція X:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumX" Grid.Row="0" Grid.Column="1" Value="0" Minimum="0" Maximum="2000" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Позиція Y:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumY" Grid.Row="1" Grid.Column="1" Value="0" Minimum="0" Maximum="2000" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Позиція Z:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumZ" Grid.Row="2" Grid.Column="1" Value="0" Minimum="0" Maximum="2000" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Ширина:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumW" Grid.Row="3" Grid.Column="1" Value="10" Minimum="1" Maximum="500" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Висота:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumH" Grid.Row="4" Grid.Column="1" Value="10" Minimum="1" Maximum="500" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Глибина:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <NumericUpDown x:Name="NumD" Grid.Row="5" Grid.Column="1" Value="10" Minimum="1" Maximum="500" Margin="0,0,0,0" Height="20"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Радіус (R):" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumOuterR" Grid.Row="6" Grid.Column="1" Value="10" Minimum="1" Maximum="500" Margin="0,0,0,5" Height="20"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Внутр (r):" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumInnerR" Grid.Row="7" Grid.Column="1" Value="10" Minimum="1" Maximum="500" Margin="0,0,0,5" Height="20"/>
+                </Grid>
+
+                <TextBlock Text="ДОДАТИ ФІГУРУ" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
                 <Button Content="Додати Коло" Click="AddCircle_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Додати Кільце" Click="AddRing_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Додати Кільце (Заф.)" Click="AddFilledRing_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
                 <Button Content="Додати Сферу" Click="AddSphere_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="Додати Циліндр" Click="AddCylinder_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
                 <Button Content="Додати Тор" Click="AddTorus_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
                 
                 <TextBlock Text="КЕРУВАННЯ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>

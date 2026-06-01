@@ -9,7 +9,7 @@ namespace OOP_Practice
 {
     public abstract class Shape3D : Shape
     {
-        public int Z { get; protected set; }
+        public short Z { get; protected set; }
 
         public Shape3D()
         {
@@ -18,7 +18,7 @@ namespace OOP_Practice
             this.Z = 0;
         }
 
-        public Shape3D(int x, int y, int z, ShapeColors? c = null)
+        public Shape3D(short x, short y, short z, ShapeColors? c = null)
         {
             this.X = x;
             this.Y = y;

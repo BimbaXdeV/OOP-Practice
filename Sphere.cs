@@ -12,20 +12,18 @@ namespace OOP_Practice
     public class Sphere : Shape3D, IDrawable, IMeasurable3D
     {
         [JsonProperty]
-        public int Radius { get; protected set; }
+        public short Radius { get; protected set; }
         public double SurfaceArea => 4 * Math.PI * Math.Pow(this.Radius, 2);
         public double Volume => (4.0 / 3.0) * Math.PI * Math.Pow(this.Radius, 3);
 
-        public Sphere(int x, int y, int z, int r, ShapeColors? c = null) : base(x, y, z, c)
+        public Sphere(short x, short y, short z, short r, ShapeColors? c = null) : base(x, y, z, c)
         {
-            this.Radius = r >= 0 ? r : 0;
+            this.Radius = (short)(r >= 0 ? r : 0);
         }
 
         public override void Resize(ShapeGeometry geometry)
         {
-            this.X = geometry.X >= 0 ? geometry.X : 0;
-            this.Y = geometry.Y >= 0 ? geometry.Y : 0;
-            this.Z = geometry.Z >= 0 ? geometry.Z : 0;
+            this.Radius = (short)(geometry.OuterRadius >= 0 ? geometry.OuterRadius : 0);
         }
 
         public void Draw(DrawingContext context)

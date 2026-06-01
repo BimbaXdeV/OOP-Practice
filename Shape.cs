@@ -12,8 +12,8 @@ namespace OOP_Practice
     {
         public static readonly ShapeColors _defaultColor = ShapeColors.Black;
 
-        public int X { get; protected set; }
-        public int Y { get; protected set; }
+        public short X { get; protected set; }
+        public short Y { get; protected set; }
         [JsonProperty]
         public ShapeColors Color { get; protected set; }
 
@@ -23,7 +23,7 @@ namespace OOP_Practice
             this.Y = 0;
         }
 
-        public Shape(int x, int y, ShapeColors? c = null)
+        public Shape(short x, short y, ShapeColors? c = null)
         {
             this.X = x;
             this.Y = y;

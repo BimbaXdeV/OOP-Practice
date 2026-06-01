@@ -13,12 +13,6 @@ namespace OOP_Practice
         [STAThread]
         public static void Main(string[] args)
         {
-            //Console.CancelKeyPress += (s, e) =>
-            //{
-            //    e.Cancel = true;
-            //    LifecycleController.MasterTokenSource.Cancel();
-            //};
-
             AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .LogToTrace()

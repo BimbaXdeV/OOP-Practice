@@ -12,23 +12,22 @@ namespace OOP_Practice
     public class Cylinder : Shape3D, IDrawable, IMeasurable3D
     {
         [JsonProperty]
-        public int Radius { get; protected set; }
+        public short Radius { get; protected set; }
         [JsonProperty]
-        public int Height { get; protected set; }
+        public short Height { get; protected set; }
         public double SurfaceArea => 2 * Math.PI * this.Radius * (this.Radius + this.Height);
         public double Volume => Math.PI * Math.Pow(this.Radius, 2) * this.Height;
 
-        public Cylinder(int x, int y, int z, int r, int h, ShapeColors? c = null) : base(x, y, z, c)
+        public Cylinder(short x, short y, short z, short r, short h, ShapeColors? c = null) : base(x, y, z, c)
         {
-            this.Radius = r >= 0 ? r : 0;
-            this.Height = h >= 0 ? h : 0;
+            this.Radius = (short)(r >= 0 ? r : 0);
+            this.Height = (short)(h >= 0 ? h : 0);
         }
 
         public override void Resize(ShapeGeometry geometry)
         {
-            this.X = geometry.X >= 0 ? geometry.X : 0;
-            this.Y = geometry.Y >= 0 ? geometry.Y : 0;
-            this.Z = geometry.Z >= 0 ? geometry.Z : 0;
+            this.Radius = (short)(geometry.OuterRadius >= 0 ? geometry.OuterRadius : 0);
+            this.Height = (short)(geometry.Height >= 0 ? geometry.Height : 0);
         }
 
         public void Draw(DrawingContext context)

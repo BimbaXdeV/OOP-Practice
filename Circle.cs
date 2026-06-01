@@ -12,14 +12,14 @@ namespace OOP_Practice
     public class Circle : Shape2D, IDrawable, IMeasurable2D
     {
         [JsonProperty]
-        public int Radius { get; protected set; }
+        public short Radius { get; protected set; }
 
         public virtual double Area => Math.PI * Math.Pow(this.Radius, 2);
         public virtual double Perimeter => 2 * Math.PI * this.Radius;
 
-        public Circle(int x, int y, int r, ShapeColors? c = null) : base(x, y, c)
+        public Circle(short x, short y, short r, ShapeColors? c = null) : base(x, y, c)
         {
-            this.Radius = r >= 0 ? r : 0;
+            this.Radius = (short)(r >= 0 ? r : 0);
         }
 
         public override void Move(ShapeGeometry geometry)
@@ -29,8 +29,7 @@ namespace OOP_Practice
 
         public override void Resize(ShapeGeometry geometry)
         {
-            int radius = geometry.Width > 0 ? geometry.Width / 2 : geometry.Height / 2;
-            this.Radius = radius >= 0 ? radius : 0;
+            this.Radius = (short)(geometry.OuterRadius >= 0 ? geometry.OuterRadius : 0);
         }
 
         public virtual void Draw(DrawingContext context)
