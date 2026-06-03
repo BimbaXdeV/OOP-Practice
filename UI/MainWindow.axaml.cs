@@ -28,11 +28,11 @@ namespace OOP_Practice.UI
             ];
             Canvas.Add(shapes, AdditionOptions.AutoRedraw | AdditionOptions.DebugInfo);
 
-            Console.WriteLine("\nShape list:\n" + Canvas.ToString());
-            Console.WriteLine("\nTotal 2D perimeter: " + Canvas.GetTotal2DPerimeter());
-            Console.WriteLine("Total 2D area     : " + Canvas.GetTotal2DArea());
-            Console.WriteLine("Total 3D surf area: " + Canvas.GetTotal3DSurfaceArea());
-            Console.WriteLine("Total 3D volume   : " + Canvas.GetTotal3DVolume());
+            //Console.WriteLine("\nShape list:\n" + Canvas.ToString());
+            //Console.WriteLine("\nTotal 2D perimeter: " + Canvas.GetTotal2DPerimeter());
+            //Console.WriteLine("Total 2D area     : " + Canvas.GetTotal2DArea());
+            //Console.WriteLine("Total 3D surf area: " + Canvas.GetTotal3DSurfaceArea());
+            //Console.WriteLine("Total 3D volume   : " + Canvas.GetTotal3DVolume());
         }
 
         private void AddCircle_Click(object? sender, RoutedEventArgs e)
@@ -162,22 +162,26 @@ namespace OOP_Practice.UI
 
         private void MoveUp_Click(object? sender, RoutedEventArgs e)
         {
-            Canvas.Move(new ShapeGeometry(x: 0, y: -50));
-        }
-
-        private void MoveRight_Click(object? sender, RoutedEventArgs e)
-        {
-            Canvas.Move(new ShapeGeometry(x: 50, y: 0));
+            short newDeltaY = (short)(-(NumT.Value ?? 1));
+            Canvas.Move(new ShapeGeometry(x: 0, y: newDeltaY));
         }
 
         private void MoveLeft_Click(object? sender, RoutedEventArgs e)
         {
-            Canvas.Move(new ShapeGeometry(x: -50, y: 0));
+            short newDeltaX = (short)(-(NumT.Value ?? 1));
+            Canvas.Move(new ShapeGeometry(x: newDeltaX, y: 0));
+        }
+
+        private void MoveRight_Click(object? sender, RoutedEventArgs e)
+        {
+            short newDeltaX = (short)(NumT.Value ?? 1);
+            Canvas.Move(new ShapeGeometry(x: newDeltaX, y: 0));
         }
 
         private void MoveDown_Click(object? sender, RoutedEventArgs e)
         {
-            Canvas.Move(new ShapeGeometry(x: 0, y: 50));
+            short newDeltaY = (short)(NumT.Value ?? 1);
+            Canvas.Move(new ShapeGeometry(x: 0, y: newDeltaY));
         }
 
         private void Save_Click(object? sender, RoutedEventArgs e)
@@ -188,6 +192,11 @@ namespace OOP_Practice.UI
         private void Load_Click(object? sender, RoutedEventArgs e)
         {
             Canvas.LoadFromFile("shape_cache.json");
+        }
+
+        private void Merge_Click(object? sender, RoutedEventArgs e)
+        {
+            Canvas.LoadFromFile("shape_cache.json", mergeWithExist: true);
         }
 
         private void ClearCanvas_Click(object? sender, RoutedEventArgs e)

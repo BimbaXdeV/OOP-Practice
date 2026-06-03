@@ -189,7 +189,7 @@ namespace OOP_Practice.UI
             }
         }
 
-        public void LoadFromFile(string filePath)
+        public void LoadFromFile(string filePath, bool mergeWithExist = false)
         {
             if (!File.Exists(filePath)) return;
 
@@ -200,11 +200,14 @@ namespace OOP_Practice.UI
                 TypeNameHandling = TypeNameHandling.All
             };
 
-            List<IShape>? loadedShapes = JsonConvert.DeserializeObject<List<IShape>>(json, settings);
+            ObservableCollection<IShape>? loadedShapes = JsonConvert.DeserializeObject<ObservableCollection<IShape>>(json, settings);
 
             if (loadedShapes != null)
             {
-                this.Shapes.Clear();
+                if (!mergeWithExist)
+                {
+                    this.Shapes.Clear();
+                }
                 Add(loadedShapes, AdditionOptions.AutoRedraw);
             }
         }

@@ -51,14 +51,22 @@
                 <Button Content="Додати Тор" Click="AddTorus_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
                 
                 <TextBlock Text="КЕРУВАННЯ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
-                <Button Content="Пересунути вверх (+50px)" Click="MoveUp_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                <Button Content="Пересунути вправо (+50px)" Click="MoveRight_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                <Button Content="Пересунути вліво (-50px)" Click="MoveLeft_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                <Button Content="Пересунути вниз (-50px)" Click="MoveDown_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *" Margin="0,0,0,5">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Дельта (t):" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                    <NumericUpDown x:Name="NumT" Grid.Row="0" Grid.Column="1" Value="1" Minimum="1" Maximum="500" Height="20"/>
+                </Grid>
+
+                <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *, *" Margin="0,0,0,10">
+                    <Button Grid.Row="0" Grid.Column="1" Content="↑" Click="MoveUp_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
+                    <Button Grid.Row="1" Grid.Column="0" Content="←" Click="MoveLeft_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
+                    <Button Grid.Row="1" Grid.Column="2" Content="→" Click="MoveRight_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
+                    <Button Grid.Row="2" Grid.Column="1" Content="↓" Click="MoveDown_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
+                </Grid>
                 
                 <TextBlock Text="ФАЙЛИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
                 <Button Content="Зберегти (JSON)" Click="Save_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#2E8B57"/>
                 <Button Content="Завантажити" Click="Load_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#4682B4"/>
+                <Button Content="Об'єднати" Click="Merge_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#4646B4"/>
                 
                 <Button Content="Очистити полотно" Click="ClearCanvas_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#8B0000" Margin="0,20,0,0"/>
                 <Button Content="Очистити кеш (смертельно)" Click="ClearCache_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#8B0000" Margin="0,5,0,0"/>
