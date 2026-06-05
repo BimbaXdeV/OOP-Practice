@@ -16,6 +16,7 @@ namespace OOP_Practice
         void Move(ShapeGeometry geometry);
         void MoveDelta(ShapeGeometry geometry);
         void Resize(ShapeGeometry geometry);
+        void Scale(float factor);
         void Recolor(ShapeColors color);
     }
 }

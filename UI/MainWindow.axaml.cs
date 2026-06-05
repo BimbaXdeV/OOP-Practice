@@ -30,8 +30,8 @@ namespace OOP_Practice.UI
 
             //Console.WriteLine("\nShape list:\n" + Canvas.ToString());
             //Console.WriteLine("\nTotal 2D perimeter: " + Canvas.GetTotal2DPerimeter());
-            //Console.WriteLine("Total 2D area     : " + Canvas.GetTotal2DArea());
-            //Console.WriteLine("Total 3D surf area: " + Canvas.GetTotal3DSurfaceArea());
+            Console.WriteLine("Total 2D area     : " + Canvas.GetTotal2DArea());
+            Console.WriteLine("Total 3D surf area: " + Canvas.GetTotal3DSurfaceArea());
             //Console.WriteLine("Total 3D volume   : " + Canvas.GetTotal3DVolume());
         }
 
@@ -182,6 +182,20 @@ namespace OOP_Practice.UI
         {
             short newDeltaY = (short)(NumT.Value ?? 1);
             Canvas.Move(new ShapeGeometry(x: 0, y: newDeltaY));
+        }
+
+        private void ScaleCanvas_Click(object? sender, RoutedEventArgs e)
+        {
+            float scaleFactor = (float)(NumS.Value ?? 1);
+            Canvas.Scale(scaleFactor);
+
+            // Циганські фокуси
+            int i = ShapesList.SelectedIndex;
+            if (i >= 0)
+            {
+                Canvas.Shapes[i] = Canvas.Shapes[i];
+                ShapesList.SelectedIndex = i;
+            }
         }
 
         private void Save_Click(object? sender, RoutedEventArgs e)

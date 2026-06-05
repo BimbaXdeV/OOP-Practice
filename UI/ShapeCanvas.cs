@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,17 @@ namespace OOP_Practice.UI
             foreach (IShape shape in this.Shapes)
             {
                 shape.MoveDelta(deltaGeometry);
+            }
+            Redraw();
+        }
+
+        public void Scale(float scaleFactor)
+        {
+            if (scaleFactor <= 0) return;
+
+            foreach (IShape shape in this.Shapes)
+            {
+                shape.Scale(scaleFactor);
             }
             Redraw();
         }

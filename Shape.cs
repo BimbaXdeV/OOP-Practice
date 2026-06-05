@@ -33,6 +33,7 @@ namespace OOP_Practice
         public abstract void Move(ShapeGeometry geometry);
         public abstract void MoveDelta(ShapeGeometry geometry);
         public abstract void Resize(ShapeGeometry geometry);
+        public abstract void Scale(float factor);
         public void Recolor(ShapeColors color)
         { 
             this.Color = color;

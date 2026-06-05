@@ -62,6 +62,11 @@
                     <Button Grid.Row="1" Grid.Column="2" Content="→" Click="MoveRight_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
                     <Button Grid.Row="2" Grid.Column="1" Content="↓" Click="MoveDown_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="2"/>
                 </Grid>
+
+                <Grid ColumnDefinitions="Auto, Auto" Margin="0,0,0,10">
+                    <Button Grid.Column="0" Content="Масштабувати (*)" Click="ScaleCanvas_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#4B0082" Margin="0,0,5,0"/>
+                    <NumericUpDown x:Name="NumS" Grid.Column="1" Value="1.0" Minimum="0.1" Maximum="10" Increment="0.1" FormatString="0.0" Height="20"/>
+                </Grid>
                 
                 <TextBlock Text="ФАЙЛИ" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
                 <Button Content="Зберегти (JSON)" Click="Save_Click" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#2E8B57"/>

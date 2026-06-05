@@ -30,6 +30,13 @@ namespace OOP_Practice
             this.MinorRadius = (short)(geometry.InnerRadius >= 0 ? geometry.InnerRadius : 0);
         }
 
+        public override void Scale(float factor)
+        {
+            base.Scale(factor);
+            this.MajorRadius = (short)Math.Max(1, this.MajorRadius * factor);
+            this.MinorRadius = (short)Math.Max(1, this.MinorRadius * factor);
+        }
+
         public void Draw(DrawingContext context)
         {
             byte[] color = ColorConverter.SplitToChannels((uint)this.Color);

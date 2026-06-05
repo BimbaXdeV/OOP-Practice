@@ -30,6 +30,13 @@ namespace OOP_Practice
             this.Height = (short)(geometry.Height >= 0 ? geometry.Height : 0);
         }
 
+        public override void Scale(float factor)
+        {
+            base.Scale(factor);
+            this.Radius = (short)Math.Max(1, this.Radius * factor);
+            this.Height = (short)Math.Max(1, this.Height * factor);
+        }
+
         public void Draw(DrawingContext context)
         {
             byte[] color = ColorConverter.SplitToChannels((uint)this.Color);

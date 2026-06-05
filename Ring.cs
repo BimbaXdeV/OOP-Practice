@@ -27,6 +27,22 @@ namespace OOP_Practice
             this.InnerRadius = (short)(geometry.InnerRadius >= 0 ? geometry.InnerRadius : 0);
         }
 
+        public override void Scale(float factor)
+        {
+            base.Scale(factor);
+
+            if (this.Radius < 2)
+            {
+                this.Radius = 2;
+            }
+
+            this.InnerRadius = (short)Math.Max(1, this.InnerRadius * factor);
+            if (this.InnerRadius >= this.Radius)
+            {
+                this.InnerRadius = (short)(this.Radius - 1);
+            }
+        }
+
         public override void Draw(DrawingContext context)
         {
             byte[] color = ColorConverter.SplitToChannels((uint)this.Color);

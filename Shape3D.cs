@@ -40,6 +40,13 @@ namespace OOP_Practice
             this.Z += geometry.Z;
         }
 
+        public override void Scale(float factor)
+        {
+            this.X = (short)(this.X * factor);
+            this.Y = (short)(this.Y * factor);
+            this.Z = (short)(this.Z * factor);
+        }
+
         public override string ToString()
         {
             return $"{this.GetType().Name} | X: {this.X}, Y: {this.Y}, Z: {this.Z} | color: {string.Join(", ", ColorConverter.SplitToChannels((uint)this.Color))}";

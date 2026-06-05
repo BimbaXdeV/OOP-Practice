@@ -22,5 +22,11 @@ namespace OOP_Practice
             this.X += geometry.X;
             this.Y += geometry.Y;
         }
+
+        public override void Scale(float factor)
+        {
+            this.X = (short)(this.X * factor);
+            this.Y = (short)(this.Y * factor);
+        }
     }
 }

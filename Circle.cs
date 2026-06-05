@@ -32,6 +32,12 @@ namespace OOP_Practice
             this.Radius = (short)(geometry.OuterRadius >= 0 ? geometry.OuterRadius : 0);
         }
 
+        public override void Scale(float factor)
+        {
+            base.Scale(factor);
+            this.Radius = (short)Math.Max(1, this.Radius * factor);
+        }
+
         public virtual void Draw(DrawingContext context)
         {
             byte[] color = ColorConverter.SplitToChannels((uint)this.Color);
